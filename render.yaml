@@ -8,7 +8,7 @@ projects:
     - type: web
       name: render-deploy-frontend
       runtime: static
-      repo: <GIT_HUB_REPO_URL_HERE>
+      repo: https://github.com/DavidMershon81/fullstack_deploy_template
       envVars:
       - key: .env
         sync: false
@@ -19,7 +19,7 @@ projects:
     - type: web
       name: render-deploy-api
       runtime: python
-      repo: <GIT_HUB_REPO_URL_HERE>
+      repo: https://github.com/DavidMershon81/fullstack_deploy_template
       plan: free
       envVars:
       - key: .env
