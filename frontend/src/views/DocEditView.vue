@@ -1,22 +1,17 @@
 <script setup lang="ts">
 import * as Y from 'yjs'
 import { WebsocketProvider } from 'y-websocket'
-import { ref, watch, computed } from 'vue'
+import { ref, watch } from 'vue'
 
 const ydoc = new Y.Doc()
 const text_area_contents = ref('')
 const roomname = 'test_room'
 const ytext = ydoc.getText('text')
-
 const provider = ref<WebsocketProvider|null>(null)
 
-
 if(provider.value === null) {
-  let apiURL:string = (import.meta.env.DEV ? import.meta.env.VITE_API_URL_DEV : import.meta.env.VITE_API_URL_PROD).replace('http://', '').replace('https://', '')
-  let apiFull = `ws://${apiURL}/doc/ws`
-  if(!import.meta.env.DEV) {
-    apiFull.replace('ws://', 'wss://')
-  }
+  const apiURL:string = (import.meta.env.DEV ? import.meta.env.VITE_API_URL_DEV : import.meta.env.VITE_API_URL_PROD).replace('http://', '').replace('https://', '')
+  const apiFull = import.meta.env.DEV ? `ws://${apiURL}/doc/ws` : `wss://${apiURL}/doc/ws`
   provider.value = new WebsocketProvider(
     apiFull,
     roomname,
