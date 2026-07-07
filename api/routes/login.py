@@ -3,7 +3,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from common.database import get_session
 from common.models import User, UserReturn
 from fastapi.security import OAuth2PasswordRequestForm
-from common.auth import authenticate_user, create_access_token, authenticate_user, hash_password, get_user_from_db, ACCESS_TOKEN_EXPIRE_MINUTES
+from common.auth import authenticate_user, create_access_token, authenticate_user, hash_password, get_user_from_db
+from common.settings import settings
 from datetime import timedelta
 
 router = APIRouter()
@@ -16,7 +17,7 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends()):
         raise HTTPException(status_code=401, detail="Incorrect credentials")
     token = create_access_token(
         data={"sub": user.username},
-        expires_delta=timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES),
+        expires_delta=timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES),
     )
     return {"access_token": token, "token_type": "bearer"}
 

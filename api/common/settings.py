@@ -14,5 +14,6 @@ class Settings(BaseSettings):
     DB_URL_DEV : str
     DB_URL_PROD : str
     AUTH_SECRET_KEY : str
+    ACCESS_TOKEN_EXPIRE_MINUTES : int
 
 settings = Settings()

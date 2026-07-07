@@ -9,8 +9,6 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from common.database import engine
 from sqlalchemy import select
 
-
-ACCESS_TOKEN_EXPIRE_MINUTES = 1
 AUTH_ALGORITHM = 'HS256'
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl='login')
