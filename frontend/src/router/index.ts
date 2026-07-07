@@ -4,6 +4,7 @@ import LoginView from '../views/LoginView.vue'
 import UserProfileView from '@/views/UserProfileView.vue'
 import RegisterView from '@/views/RegisterView.vue'
 import CompaniesView from '@/views/CompaniesView.vue'
+import DocEditView from '@/views/DocEditView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +33,11 @@ const router = createRouter({
       path: '/user_profile',
       name: 'user_profile',
       component: UserProfileView,
+    },
+    {
+      path: '/doc_edit',
+      name: 'doc_edit',
+      component: DocEditView,
     },
   ],
 })

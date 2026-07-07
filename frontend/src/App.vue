@@ -12,6 +12,7 @@ import WelcomeMessage from './components/WelcomeMessage.vue';
         <RouterLink to="/login">Login</RouterLink>
         <RouterLink to="/register">Register</RouterLink>
         <RouterLink to="/user_profile">User Profile</RouterLink>
+        <RouterLink to="/doc_edit">Edit Document</RouterLink>
       </nav>
     </div>
   </header>

@@ -15,7 +15,9 @@
     "axios": "^1.18.1",
     "pinia": "^3.0.4",
     "vue": "^3.5.38",
-    "vue-router": "^5.1.0"
+    "vue-router": "^5.1.0",
+    "y-websocket": "^3.0.0",
+    "yjs": "^13.6.31"
   },
   "devDependencies": {
     "@tsconfig/node24": "^24.0.4",

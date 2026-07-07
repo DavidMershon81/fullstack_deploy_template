@@ -1,9 +1,8 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, WebSocket
 from fastapi.middleware.cors import CORSMiddleware
 from common.settings import settings
 from routes.main import api_router
 from common.sanity_checks import print_settings_test_var
-
 
 print_settings_test_var()
 
