@@ -13,9 +13,12 @@ const provider = ref<WebsocketProvider|null>(null)
 
 if(provider.value === null) {
   let apiURL:string = (import.meta.env.DEV ? import.meta.env.VITE_API_URL_DEV : import.meta.env.VITE_API_URL_PROD).replace('http://', '').replace('https://', '')
+  let apiFull = `ws://${apiURL}/doc/ws`
+  if(!import.meta.env.DEV) {
+    apiFull.replace('ws://', 'wss://')
+  }
   provider.value = new WebsocketProvider(
-    //'wss://demos.yjs.dev/ws', // use the public ws server
-    `ws://${apiURL}/doc/ws`,
+    apiFull,
     roomname,
     ydoc
   )
