@@ -10,12 +10,12 @@ const ytext = ydoc.getText('text')
 
 const provider = ref<WebsocketProvider|null>(null)
 
-console.log('doing anything...')
+
 if(provider.value === null) {
-  console.log('loading WebsocketProvider....')
+  let apiURL:string = (import.meta.env.DEV ? import.meta.env.VITE_API_URL_DEV : import.meta.env.VITE_API_URL_PROD).replace('http://', '').replace('https://', '')
   provider.value = new WebsocketProvider(
     //'wss://demos.yjs.dev/ws', // use the public ws server
-    'ws://127.0.0.1:8000/doc/ws',
+    `ws://${apiURL}/doc/ws`,
     roomname,
     ydoc
   )
